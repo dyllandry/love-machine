@@ -35,6 +35,8 @@ Could keep used messages in one Google sheet tab, and unused ones in another.
 
 Instead of having all messages in one part of the document db and searching through each message to find those that haven't been sent yet, unsent messages could be kept in one part and already sent messages kept in another. That way we can just reach in to either part and grab the first message we see instead of worrying about whether or not it has been sent already.
 
+There is an educational and job skills benefit to developing with just AWS resources, instead of Netlify and Google Sheets.
+
 ### Frontend Choice
 
 This frontend would be what is used to add more messages to be sent in the future.
