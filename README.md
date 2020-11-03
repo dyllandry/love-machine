@@ -16,3 +16,5 @@ Automatically send unique messages to someone special. 💘
  10 minute billed instances/day = 3 (based on sending 3 messages a day)
  Total monthly price = 3 * $0.013 * 30/days = $1.17/month
  ```
+
+Instead of having all messages in one part of the document db and searching through each message to find those that haven't been sent yet, unsent messages could be kept in one part and already sent messages kept in another. That way we can just reach in to either part and grab the first message we see instead of worrying about whether or not it has been sent already.
