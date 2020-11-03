@@ -27,6 +27,18 @@ A complication with using DocumentDB would be that the instance has to be starte
 
 [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) might be good, there's a free tier that allows 25GB storage, and 25KB read & write per day.
 
+#### Google Sheets
+
+Could keep used messages in one Google sheet tab, and unused ones in another.
+
 #### Other DB Notes
 
 Instead of having all messages in one part of the document db and searching through each message to find those that haven't been sent yet, unsent messages could be kept in one part and already sent messages kept in another. That way we can just reach in to either part and grab the first message we see instead of worrying about whether or not it has been sent already.
+
+### Frontend Choice
+
+This frontend would be what is used to add more messages to be sent in the future.
+
+#### Netlify Forms
+
+Host a static site with Netlify that can collect 100 form submissions per month. A Netlify function could recieve these forms and insert them in the DB. To get around the 100 submissions/month limit, multiple messages could be submit in each form.
