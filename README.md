@@ -4,6 +4,8 @@ Automatically send unique messages to someone special. 💘
 
 ## Planning
 
+### DB Choice
+
  Don't need structure of a relational database, document-style is good enough.
  
  Estimates of [Amazon Document DB](https://aws.amazon.com/documentdb/pricing/) price:
@@ -18,3 +20,5 @@ Automatically send unique messages to someone special. 💘
  ```
 
 Instead of having all messages in one part of the document db and searching through each message to find those that haven't been sent yet, unsent messages could be kept in one part and already sent messages kept in another. That way we can just reach in to either part and grab the first message we see instead of worrying about whether or not it has been sent already.
+
+[Amazon DynamoDB](https://aws.amazon.com/dynamodb/) might be good, there's a free tier that allows 25GB storage, and 25KB read & write per day.
