@@ -1,4 +1,4 @@
-# Love Letter
+# Love Machine
 
 Automatically send unique messages to someone special. 💘
 
