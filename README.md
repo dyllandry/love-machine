@@ -2,6 +2,12 @@
 
 Automatically send unique messages to someone special. 💘
 
+## Todo
+
+- [ ] create UsedMessages AWS DynamoDB table
+- [ ] create UnusedMessages AWS DynamoDB table
+- [ ] used AWS api to read/write to table
+
 ## Planning
 
 ### Architecture
