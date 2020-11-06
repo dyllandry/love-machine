@@ -21,7 +21,24 @@ _Picked AWS DynamoDB._
 
 **Only scan first ~30 messages in table when reading, they are all unused anyways.** Limit the result set to no more than 30. If unused messages are kept in their own table, then we know they are all unused, and we can just pick some randomly from there.
 
-### Message Picking Algorithm
+#### Data shape
+
+```JSON
+"UnusedMessage": {
+  "MessageId": "jekidjklwer",
+  "Text": "Aren't you a spicy cucumber ;O",
+  "createdAt": "2020-11-06T02:18:59.238Z"
+}
+
+"UsedMessage": {
+  "MessageId": "jekidjklwer",
+  "Text": "Aren't you a spicy cucumber ;O",
+  "createdAt": "2020-11-06T02:18:59.238Z",
+  "sentAt": "2020-11-08T22:21:55.843Z"
+}
+```
+
+#### Message Picking Algorithm
 
 1. Scan 30 messages from unused message table.
 1. Pick one randomly.
