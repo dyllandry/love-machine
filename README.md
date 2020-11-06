@@ -13,6 +13,21 @@ Persistent message storage + message sending service + controller + interface to
 - Controller: AWS Lambda
 - Interface to add more messages: Form on static site (Netlify site + Netlify form) with Netlify function w/ creds in env that submits message to dynamodb database
 
+### Database Planning
+
+_Picked AWS DynamoDB._
+
+**Keep used and unused messages in different tables.** Instead of keeping all messages in one table, keep the used and unused messages in separate tables. Then, we don't have to scan the table to find unused messages. Instead, we can scan the unused table for the first ~10, which we know will all be unused, and can just pick one randomly of those ten.
+
+**Only scan first ~30 messages in table when reading, they are all unused anyways.** Limit the result set to no more than 30. If unused messages are kept in their own table, then we know they are all unused, and we can just pick some randomly from there.
+
+### Message Picking Algorithm
+
+1. Scan 30 messages from unused message table.
+1. Pick one randomly.
+1. Add message to UsedTable
+1. Delete message from UnusedTable
+
 ### DB Choice
 
 **Winner**: AWS DynamoDB
