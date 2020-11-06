@@ -53,7 +53,7 @@ A complication with using DocumentDB would be that the instance has to be starte
 
 #### AWS DynamoDB
 
-[Amazon DynamoDB](https://aws.amazon.com/dynamodb/) might be good, there's a free tier that allows 25GB storage, and 25KB read & write per day.
+[Amazon DynamoDB](https://aws.amazon.com/dynamodb/) might be good, there's a free tier that allows 25GB storage, and 25KB read & write per ~day~ second.
 
 #### Google Sheets
 
