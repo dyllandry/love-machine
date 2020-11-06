@@ -4,8 +4,8 @@ Automatically send unique messages to someone special. 💘
 
 ## Todo
 
-- [x] create UsedMessages AWS DynamoDB table
-- [x] create UnusedMessages AWS DynamoDB table
+- [x] create UsedMessages AWS DynamoDB table (2020-11-05)
+- [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
 - [ ] used AWS api to read/write to table
 
 ## Planning
