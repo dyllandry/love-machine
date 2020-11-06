@@ -7,6 +7,7 @@ Automatically send unique messages to someone special. 💘
 - [x] create UsedMessages AWS DynamoDB table (2020-11-05)
 - [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
 - [ ] used AWS api to read/write to table ([dynamodb getting started](https://aws.amazon.com/dynamodb/getting-started/))
+  - I think I need to create a IAM [Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) with policies that allow it to CRUD the dynamodb resource, then generate a [access id and access secret](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SettingUp.DynamoWebService.html#SettingUp.DynamoWebService.GetCredentials) for that role? I'm pretty sure I have to create the role, but I do not know if it's possible/intended to generate the access credentials for it.
 
 ## Planning
 
