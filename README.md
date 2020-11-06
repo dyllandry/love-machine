@@ -6,7 +6,7 @@ Automatically send unique messages to someone special. 💘
 
 - [x] create UsedMessages AWS DynamoDB table (2020-11-05)
 - [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
-- [ ] used AWS api to read/write to table
+- [ ] used AWS api to read/write to table ([dynamodb getting started](https://aws.amazon.com/dynamodb/getting-started/))
 
 ## Planning
 
