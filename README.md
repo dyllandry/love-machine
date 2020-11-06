@@ -4,7 +4,20 @@ Automatically send unique messages to someone special. 💘
 
 ## Planning
 
+### Architecture
+
+Persistent message storage + message sending service + controller + interface to add more messages
+
+- Persistent storage: Database
+- Message sending service: sms api
+- Controller: AWS Lambda
+- Interface to add more messages: Form on static site (Netlify site + Netlify form) with Netlify function w/ creds in env that submits message to dynamodb database
+
 ### DB Choice
+
+**Winner**: AWS DynamoDB
+
+Cheap enough, based on usage and not uptime. Like to stick with AWS for learning it as a tool that's commonly requested by other jobs.
 
 #### AWS DocumentDB
 
