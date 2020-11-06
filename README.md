@@ -9,6 +9,8 @@ Automatically send unique messages to someone special. 💘
 - [ ] used AWS api to read/write to table ([dynamodb getting started](https://aws.amazon.com/dynamodb/getting-started/))
   - I think I need to create a IAM [Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) with policies that allow it to CRUD the dynamodb resource, then generate a [access id and access secret](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SettingUp.DynamoWebService.html#SettingUp.DynamoWebService.GetCredentials) for that role? I'm pretty sure I have to create the role, but I do not know if it's possible/intended to generate the access credentials for it.
   - Maybe, I grant a role to an identity meant for apps called a "service something", or something. Then I can generate the access creds for that "service something".
+- [ ] Fill out section "Free Data Transfer Limits"
+  - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
 
 ## Planning
 
@@ -52,6 +54,10 @@ _Picked AWS DynamoDB._
 1. Pick one randomly.
 1. Add message to UsedTable
 1. Delete message from UnusedTable
+
+#### Free Data Transfer Limits
+
+
 
 ### DB Choice
 
