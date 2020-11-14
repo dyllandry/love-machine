@@ -17,12 +17,12 @@ Automatically send unique messages to someone special. 💘
 
 ### Architecture
 
-Persistent message storage + message sending service + controller + interface to add more messages
+Persistent message storage + message sending service + controller + interface to add more messages.
 
-- Persistent storage: Database
-- Message sending service: sms api
-- Controller: AWS Lambda
-- Interface to add more messages: Form on static site (Netlify site + Netlify form) with Netlify function w/ creds in env that submits message to dynamodb database
+- Message storage: DynamoDB
+- Message sending controller: AWS Lambda + Trigger + SMS Api
+- New message api: AWS Lambda exposed with https endpoint (takes a password)
+- New message form: Netlify site + Netlify form + Netlify function
 
 ### Database Planning
 
