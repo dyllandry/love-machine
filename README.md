@@ -8,6 +8,8 @@ Automatically send unique messages to someone special. 💘
 - [x] access local dynamodb docker container w/ python (2020-11-14)
 - [x] setup aws iam role for lambda `love_machine-manage-messages_iam-role` (2020-11-14)
   - will need to generate credentials for role I think
+- [ ] create local function in lambda shape for reading & sending a message
+- [ ] create local function in lambda shape for recieving a "new messages" form submission and adding it to the db
 - [ ] Fill out section "Free Data Transfer Limits"
   - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
