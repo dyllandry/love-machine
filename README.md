@@ -4,11 +4,10 @@ Automatically send unique messages to someone special. 💘
 
 ## Todo
 
-- [x] create UsedMessages AWS DynamoDB table (2020-11-05)
-- [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
-- [ ] used AWS api to read/write to table ([dynamodb getting started](https://aws.amazon.com/dynamodb/getting-started/))
-  - I think I need to create a IAM [Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) with policies that allow it to CRUD the dynamodb resource, then generate a [access id and access secret](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SettingUp.DynamoWebService.html#SettingUp.DynamoWebService.GetCredentials) for that role? I'm pretty sure I have to create the role, but I do not know if it's possible/intended to generate the access credentials for it.
-  - Maybe, I grant a role to an identity meant for apps called a "service something", or something. Then I can generate the access creds for that "service something".
+- [x] create `love_machine-used_messages` & `love_machine-unused_messages` AWS DynamoDB tables (2020-11-05)
+- [x] access local dynamodb docker container w/ python (2020-11-14)
+- [x] setup aws iam role for lambda `love_machine-manage-messages_iam-role` (2020-11-14)
+  - will need to generate credentials for role I think
 - [ ] Fill out section "Free Data Transfer Limits"
   - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
