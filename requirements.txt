@@ -1,1 +1,6 @@
+# Aws client library.
 boto3
+# Error types for boto3.
+botocore
+# Read values from .env file.
+python-dotenv

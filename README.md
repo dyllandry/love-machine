@@ -8,11 +8,22 @@ Automatically send unique messages to someone special. 💘
 - [x] access local dynamodb docker container w/ python (2020-11-14)
 - [x] setup aws iam role for lambda `love_machine-manage-messages_iam-role` (2020-11-14)
   - will need to generate credentials for role I think
+- [x] create UsedMessages AWS DynamoDB table (2020-11-05)
+- [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
+- [x] write scripts for database setup & teardown (2020-11-21)
 - [ ] create local function in lambda shape for reading & sending a message
 - [ ] create local function in lambda shape for recieving a "new messages" form submission and adding it to the db
+- [ ] figure out how to give lambda role with correct policies
+  - already created role (above)
+  - maybe have to generate credentials for role?
+- [ ] try uploading & running lamda
 - [ ] Fill out section "Free Data Transfer Limits"
   - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
+
+### Improvements
+
+- [ ] use asyncio module to perform remote actions asynchronously
 
 ## Planning
 
@@ -62,9 +73,22 @@ _Picked AWS DynamoDB._
 1. Add message to UsedTable
 1. Delete message from UnusedTable
 
+#### Running DB Locally
+
+Use docker-compose to run file. After, you can use the aws cli to talk to it. `AWS_ACCESS_KEY_ID=123 AWS_SECRET_ACCESS_KEY=456 aws dynamodb list-tables --endpoint-url http://localhost:8000 --region mybutt` The two env vars for access key id and secret access key and the `--region` option just have to be defined, they can be whatever you want, but make sure they match the values in the .env file so that the app is using the same arbitrary values.
+
+```bash
+export AWS_ACCESS_KEY_ID=123
+export AWS_SECRET_ACCESS_KEY=456
+export AWS_DEFAULT_REGION=oz
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+```
+
+##### Database Setup
+
+Use a python interpreter to run functions `up()` and `down()` in `db.py`. Up creates database tables, down deletes them.
+
 #### Free Data Transfer Limits
-
-
 
 ### DB Choice
 
