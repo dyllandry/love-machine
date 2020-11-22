@@ -11,6 +11,10 @@ Automatically send unique messages to someone special. 💘
 - [x] create UsedMessages AWS DynamoDB table (2020-11-05)
 - [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
 - [x] write scripts for database setup & teardown (2020-11-21)
+- should these go in a message model instead of a db model? Db doesn't really describe it.
+- [ ] create model for creating a message
+- [ ] create model for deleting a message
+- [ ] create model for markMessageUsed? To abstract moving message to other db
 - [ ] create local function in lambda shape for reading & sending a message
 - [ ] create local function in lambda shape for recieving a "new messages" form submission and adding it to the db
 - [ ] figure out how to give lambda role with correct policies
