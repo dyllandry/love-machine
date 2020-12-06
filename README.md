@@ -12,8 +12,8 @@ Automatically send unique messages to someone special. 💘
 - [x] create UnusedMessages AWS DynamoDB table (2020-11-05)
 - [x] write scripts for database setup & teardown (2020-11-21)
 - should these go in a message model instead of a db model? Db doesn't really describe it.
-- [ ] create model for creating a message
-- [ ] create model for deleting a message
+- [x] create model for creating a message (2020-12-06)
+- [x] create model for deleting a message (2020-12-06)
 - [ ] create model for markMessageUsed? To abstract moving message to other db
 - [ ] create local function in lambda shape for reading & sending a message
 - [ ] create local function in lambda shape for recieving a "new messages" form submission and adding it to the db
@@ -79,7 +79,7 @@ _Picked AWS DynamoDB._
 
 #### Running DB Locally
 
-Use docker-compose to run file. After, you can use the aws cli to talk to it. `AWS_ACCESS_KEY_ID=123 AWS_SECRET_ACCESS_KEY=456 aws dynamodb list-tables --endpoint-url http://localhost:8000 --region mybutt` The two env vars for access key id and secret access key and the `--region` option just have to be defined, they can be whatever you want, but make sure they match the values in the .env file so that the app is using the same arbitrary values.
+Use docker-compose to run file. After, you can use the aws cli to talk to it. `AWS_ACCESS_KEY_ID=123 AWS_SECRET_ACCESS_KEY=456 aws dynamodb list-tables --endpoint-url http://localhost:8000 --region oz` The two env vars for access key id and secret access key and the `--region` option just have to be defined, they can be whatever you want, but make sure they match the values in the .env file so that the app is using the same arbitrary values.
 
 ```bash
 export AWS_ACCESS_KEY_ID=123

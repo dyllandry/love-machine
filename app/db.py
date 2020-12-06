@@ -13,10 +13,7 @@ from botocore.exceptions import ClientError
 
 load_dotenv()
 
-unusedMessagesTableName = 'love-machine_unused-messages'
-usedMessagesTableName = 'love-machine_used-messages'
-
-db = boto3.client(
+client = boto3.client(
     'dynamodb',
     region_name=os.getenv('AWS_REGION_NAME'),
     aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
@@ -24,17 +21,16 @@ db = boto3.client(
     endpoint_url=os.getenv('AWS_ENDPOINT_URL')
 )
 
-
 def up():
     """Does first time database setup for the app, creates all the necessary db tables."""
-    _createTable(unusedMessagesTableName)
-    _createTable(usedMessagesTableName)
+    _createTable(os.getenv('UNUSED_MESSAGES_TABLE_NAME'))
+    _createTable(os.getenv('USED_MESSAGES_TABLE_NAME'))
 
 
 def _createTable(tableName):
     """Creates a table, handling the error if the table already exists."""
     try:
-        db.create_table(
+        client.create_table(
             TableName=tableName,
             AttributeDefinitions=[{
                 'AttributeName': 'messageId',
@@ -58,14 +54,14 @@ def _createTable(tableName):
 
 def down():
     """Tears down the database, deletes all the tables this project uses."""
-    _deleteTable(usedMessagesTableName)
-    _deleteTable(unusedMessagesTableName)
+    _deleteTable(os.getenv('UNUSED_MESSAGES_TABLE_NAME'))
+    _deleteTable(os.getenv('USED_MESSAGES_TABLE_NAME'))
 
 
 def _deleteTable(tableName):
     """Deletes a table, handling the error if the table doesn't exist."""
     try:
-        db.delete_table(TableName=tableName)
+        client.delete_table(TableName=tableName)
     except ClientError as e:
         if(e.response['Error']['Code'] != 'ResourceNotFoundException'):
             raise e
