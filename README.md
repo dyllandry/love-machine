@@ -14,8 +14,10 @@ Automatically send unique messages to someone special. 💘
 - should these go in a message model instead of a db model? Db doesn't really describe it.
 - [x] create model for creating a message (2020-12-06)
 - [x] create model for deleting a message (2020-12-06)
-- [ ] create model for markMessageUsed? To abstract moving message to other db
-- [ ] create local function in lambda shape for reading & sending a message
+- [x] create model for moveUnusedMessageToUsed
+- [ ] create local function in lambda shape for sending an sms message (stub sms api)
+  - _do not create an entire local openwhisk deployment for this_
+  - just use whatever test script they provide for running the function with the correct parameter shape
 - [ ] create local function in lambda shape for recieving a "new messages" form submission and adding it to the db
 - [ ] figure out how to give lambda role with correct policies
   - already created role (above)
@@ -24,10 +26,13 @@ Automatically send unique messages to someone special. 💘
 - [ ] Fill out section "Free Data Transfer Limits"
   - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
+- [ ] test out sms api outside code stuff
+- [ ] implement sms api
 
 ### Improvements
 
 - [ ] use asyncio module to perform remote actions asynchronously
+  - could create used message and delete unused message at same time
 
 ## Planning
 
