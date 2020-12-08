@@ -18,6 +18,7 @@ Automatically send unique messages to someone special. 💘
 - [x] create method for getting a random message (2020-12-08)
 - [ ] create local function in lambda shape for sending an sms message (stub sms api)
   - _do not create an entire local openwhisk deployment for this_
+  - <https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html>
   - just use whatever test script they provide for running the function with the correct parameter shape
 - [ ] create local function in lambda shape for recieving a "new messages" form submission and adding it to the db
 - [ ] figure out how to give lambda role with correct policies
@@ -29,6 +30,7 @@ Automatically send unique messages to someone special. 💘
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
 - [ ] test out sms api outside code stuff
 - [ ] implement sms api
+- [ ] setup rule for triggering lambad on interval (use aws Cloud Watch) <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html>
 
 ### Improvements
 
