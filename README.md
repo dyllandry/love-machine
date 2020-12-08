@@ -15,6 +15,7 @@ Automatically send unique messages to someone special. 💘
 - [x] create model for creating a message (2020-12-06)
 - [x] create model for deleting a message (2020-12-06)
 - [x] create model for moveUnusedMessageToUsed
+- [x] create method for getting a random message (2020-12-08)
 - [ ] create local function in lambda shape for sending an sms message (stub sms api)
   - _do not create an entire local openwhisk deployment for this_
   - just use whatever test script they provide for running the function with the correct parameter shape
