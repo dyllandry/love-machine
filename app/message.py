@@ -41,6 +41,9 @@ def createUnusedMessage(client: botostubs.DynamoDB, text: string):
     )
     return messageId
 
+def formatAsSms(text, createdAt):
+    return os.getenv("RECIPIENT_NAME") + ",\n" + text + "\n\n -- Written with love at " + datetime.fromisoformat(createdAt).strftime("%A %H:%M, %B %d, %Y")
+
 def _itemToMessage(item):
     """Converts a DynamoDB response item to a message dict."""
     message = {

@@ -2,5 +2,9 @@
 boto3
 # Error types for boto3.
 botocore
+# Types for boto3
+botostubs
 # Read values from .env file.
 python-dotenv
+# Sms api
+clicksend_client

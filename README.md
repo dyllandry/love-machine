@@ -16,7 +16,8 @@ Automatically send unique messages to someone special. 💘
 - [x] create model for deleting a message (2020-12-06)
 - [x] create model for moveUnusedMessageToUsed
 - [x] create method for getting a random message (2020-12-08)
-- [ ] create local function in lambda shape for sending an sms message (stub sms api)
+- [x] create local function in lambda shape for sending an sms message (stub sms api) (2020-12-13)
+- [x] implement sms api (2020-12-13)
   - _do not create an entire local openwhisk deployment for this_
   - <https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html>
   - just use whatever test script they provide for running the function with the correct parameter shape
@@ -25,12 +26,10 @@ Automatically send unique messages to someone special. 💘
   - already created role (above)
   - maybe have to generate credentials for role?
 - [ ] try uploading & running lamda
+- [ ] setup rule for triggering lambad on interval (use aws Cloud Watch) <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html>
 - [ ] Fill out section "Free Data Transfer Limits"
   - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
-- [ ] test out sms api outside code stuff
-- [ ] implement sms api
-- [ ] setup rule for triggering lambad on interval (use aws Cloud Watch) <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html>
 
 ### Improvements
 
