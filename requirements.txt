@@ -7,4 +7,4 @@ botostubs
 # Read values from .env file.
 python-dotenv
 # Sms api
-clicksend_client
+twilio

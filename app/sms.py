@@ -1,26 +1,15 @@
 import os
+from twilio.rest import Client
 from dotenv import load_dotenv
-import clicksend_client
-from clicksend_client import SmsMessage
-from clicksend_client.rest import ApiException
 
 load_dotenv()
 
-configuration = clicksend_client.Configuration()
-configuration.username = os.getenv("CLICKSEND_USERNAME")
-configuration.password = os.getenv("CLICKSEND_PASSWORD")
-
-clicksendApi = clicksend_client.SMSApi(clicksend_client.ApiClient(configuration))
+client = Client(os.getenv('TWILIO_ACCOUNT_SID'), os.getenv('TWILIO_AUTH_TOKEN'))
 
 def send(text):
-    smsMessage = SmsMessage(
-        to=os.getenv("RECIPIENT_PHONE"),
-        _from=os.getenv("SENDER_PHONE"),
+    client.messages.create(
         body=text,
+        from_=os.getenv("SENDER_PHONE"),
+        to=os.getenv("RECIPIENT_PHONE")
     )
-    smsMessages = clicksend_client.SmsMessageCollection(messages=[smsMessage])
-    try:
-        clicksendApi.sms_send_post(smsMessages)
-    except ApiException as e:
-        print("Exception when calling SMSApi->sms_send_post: %s\n" % e)
-    return
+
