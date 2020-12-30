@@ -7,12 +7,12 @@ load_dotenv()
 _unusedTableName = os.getenv("UNUSED_MESSAGES_TABLE_NAME")
 _usedTableName = os.getenv("USED_MESSAGES_TABLE_NAME")
 
-def getRandomUnusedMessage(client: botostubs.DynamoDB):
+def getRandomUnusedMessage(client):
     response = client.scan(TableName=_unusedTableName, Limit=10)
     messages = map(lambda item: _itemToMessage(item), response["Items"])
     return random.choice(list(messages))
 
-def createUsedMessage(client: botostubs.DynamoDB, createdAt: string, text: string): 
+def createUsedMessage(client, createdAt: string, text: string): 
     client.put_item(
         TableName=_usedTableName,
         Item={
@@ -23,13 +23,13 @@ def createUsedMessage(client: botostubs.DynamoDB, createdAt: string, text: strin
         }
     )
 
-def deleteUnusedMessage(client: botostubs.DynamoDB, id: string):
+def deleteUnusedMessage(client, id: string):
     client.delete_item(
         Key={ "messageId": { "S": id } },
         TableName=_unusedTableName
     )
 
-def createUnusedMessage(client: botostubs.DynamoDB, text: string):
+def createUnusedMessage(client, text: string):
     messageId = _getUid()
     client.put_item(
         TableName=_unusedTableName,
