@@ -1,6 +1,6 @@
 import db, message, sms
 
-def sendMessage():
+def sendMessage(*args):
     unusedMessage = message.getRandomUnusedMessage(db.client)
     smsMessageText = message.formatAsSms(text=unusedMessage["text"], createdAt=unusedMessage["createdAt"])
     sms.send(smsMessageText)
