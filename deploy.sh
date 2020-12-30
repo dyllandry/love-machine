@@ -32,6 +32,8 @@ aws lambda create-function \
   --handler lambdaHandler.sendMessage \
   --timeout 10 \
   --environment "Variables={ \
+      AWS_REGION_NAME=$AWS_REGION_NAME, \
+      AWS_ENDPOINT_URL=$AWS_ENDPOINT_URL, \
       UNUSED_MESSAGES_TABLE_NAME=$UNUSED_MESSAGES_TABLE_NAME, \
       USED_MESSAGES_TABLE_NAME=$USED_MESSAGES_TABLE_NAME, \
       TWILIO_ACCOUNT_SID=$TWILIO_ACCOUNT_SID, \
