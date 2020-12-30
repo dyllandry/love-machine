@@ -1,4 +1,4 @@
-import boto3, os, random, string, botostubs
+import boto3, os, random, string
 from dotenv import load_dotenv
 from datetime import datetime
 
