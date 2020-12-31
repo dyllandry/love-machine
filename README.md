@@ -27,8 +27,8 @@ Automatically send unique messages to someone special. 💘
   - <https://docs.aws.amazon.com/lambda/latest/dg/python-handler.html>
   - just use whatever test script they provide for running the function with the correct parameter shape
 - [x] create scripts for uploading lambda (2020-12-26)
-- [ ] use different sms api than clicksend, doesn't work with aws lambda <https://github.com/ClickSend/clicksend-python/issues/4>
-- [ ] setup rule for triggering lambad on interval (use aws Cloud Watch) <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html>
+- [x] use different sms api than clicksend, doesn't work with aws lambda <https://github.com/ClickSend/clicksend-python/issues/4> (2020-12-30)
+- [x] setup rule for triggering lambad on interval (use aws Cloud Watch) <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html> (2020-12-30)
 - [ ] Fill out section "Free Data Transfer Limits"
   - Given the free tier limits on DynamoDB and how many messages I want to be able to pull over just one second, I should be able to figure out how long a message can be. For example, if I can only request 25 KB per second and want to pull 30 messages in one second without breaking that free tier speed limit, then each message can be at most 833 bytes (`25000 bytes / 30 messages = 833 bytes / message`).
   - The information I need: [dynamodb developer guide: data types](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html#limits-data-types)
