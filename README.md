@@ -1,11 +1,14 @@
 # Love Machine
 
-Automatically send unique messages to someone special. 💘
+Automatically send heartfelt text messages to someone special. 💘
+
+**How it works**: A Python AWS Lambda action triggers every day, picks a message from a DynamoDB table of unique compliments, sends it as a text message using the Twilio api, then moves the message into another DynamoDB table of messages that have been used.
 
 ## Deployment
 
-1. `./package.sh`
-1. `./deploy.sh`
+1. `.env` - Copy .env.example to .env & fill with your values.
+1. `./package.sh` - Packages project for upload to AWS Lambda.
+1. `./deploy.sh` - Deploys package to AWS Lambda.
 
 ## Todo
 
@@ -40,6 +43,8 @@ Automatically send unique messages to someone special. 💘
   - could create used message and delete unused message at same time
 
 ## Planning
+
+_This planning stuff is out of date and hasn't been touched since the project was developed. I'm keeping it here in case I further develop the project and want to see what I was previously thinking._
 
 ### Architecture
 
