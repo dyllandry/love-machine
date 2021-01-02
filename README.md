@@ -1,6 +1,9 @@
+
 # Love Machine
 
 Automatically send heartfelt text messages to someone special. 💘
+
+![](./love-machine-screenshot.jpg)
 
 **How it works**: A Python AWS Lambda action triggers every day, picks a message from a DynamoDB table of unique compliments, sends it as a text message using the Twilio api, then moves the message into another DynamoDB table of messages that have been used.
 
